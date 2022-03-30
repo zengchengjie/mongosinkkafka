@@ -1,0 +1,44 @@
+
+server:
+  servlet:
+    context-path: /
+  port: 80
+
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: 159.75.237.236:9025
+#      bootstrap-servers: 192.168.10.49:9093
+#      bootstrap-servers: 172.16.0.15:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: 159.75.237.236:9025
+#      bootstrap-servers: 192.168.10.49:9093
+#      bootstrap-servers: 172.16.0.15:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  data:
+    mongodb:
+      primary:
+        uri: "mongodb://root:123456@192.168.10.49:27017/dbnetprobe"
+#        host: "192.168.10.49"
+#        port: 27017
+#        authentication-database: "admin"
+#        username: "root"
+#        password: "123456"
+#        database: "dbnetprobe"
+
+      secondary:
+        uri: "mongodb://root:123456@192.168.10.49:27017/dbnetdev"
+#        host: "192.168.10.49"
+#        port: 27017
+#        authentication-database: "admin"
+#        username: "root"
+#        password: "123456"
+#        database: "dbnetdev"
+
+#feign:
+#  hystrix:
+#    enabled: true

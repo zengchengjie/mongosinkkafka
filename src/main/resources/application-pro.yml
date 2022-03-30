@@ -1,0 +1,38 @@
+
+server:
+  servlet:
+    context-path: /
+  port: 80
+
+spring:
+  kafka:
+    producer:
+#      bootstrap-servers: 192.168.10.49:9093
+      bootstrap-servers: 172.16.0.15:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: 172.16.0.15:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  data:
+    mongodb:
+      primary:
+        host: "172.16.0.17"
+        port: 27017
+        authentication-database: "admin"
+        username: "admin"
+        password: "Aa20210510"
+        database: "edge_traffic"
+
+      secondary:
+        host: "172.16.0.17"
+        port: 27017
+        authentication-database: "admin"
+        username: "admin"
+        password: "Aa20210510"
+        database: "edge_task"
+#feign:
+#  hystrix:
+#    enabled: true
