@@ -18,19 +18,18 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class SecondaryMongoConfig {
     public static final String MONGO_TEMPLATE = "secondaryMongoTemplate";
 
-
     @Value("${spring.data.mongodb.secondary.uri}")
     private String uri;
 
     @Primary
     @Bean(name = MONGO_TEMPLATE)
-    public MongoTemplate mongoSecondaryTemplate() throws Exception {
+    public MongoTemplate mongoSecondaryTemplate() {
         return new MongoTemplate(mongoSecondaryFactory());
     }
 
     @Bean
     @Primary
-    public MongoDatabaseFactory mongoSecondaryFactory() throws Exception {
+    public MongoDatabaseFactory mongoSecondaryFactory() {
         SimpleMongoClientDatabaseFactory simpleMongoClientDbFactory = new SimpleMongoClientDatabaseFactory(uri);
         return simpleMongoClientDbFactory;
     }

@@ -23,13 +23,13 @@ public class PrimaryMongoConfig {
 
     @Primary
     @Bean(name = MONGO_TEMPLATE)
-    public MongoTemplate mongoPrimaryTemplate() throws Exception {
+    public MongoTemplate mongoPrimaryTemplate() {
         return new MongoTemplate(mongoPrimaryFactory());
     }
 
     @Bean
     @Primary
-    public MongoDatabaseFactory mongoPrimaryFactory() throws Exception {
+    public MongoDatabaseFactory mongoPrimaryFactory() {
         SimpleMongoClientDatabaseFactory simpleMongoClientDbFactory = new SimpleMongoClientDatabaseFactory(uri);
         return simpleMongoClientDbFactory;
     }
